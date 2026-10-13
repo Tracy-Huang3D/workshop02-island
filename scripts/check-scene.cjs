@@ -1,0 +1,34 @@
+// Local QA helper; Playwright is supplied by the desktop runtime, not shipped with the app.
+const { createRequire } = require('node:module');
+const fs = require('node:fs');
+const runtimeRequire = createRequire(process.env.PLAYWRIGHT_RUNTIME + '/package.json');
+const { chromium } = runtimeRequire('playwright');
+(async () => {
+  const browser = await chromium.launch({ headless: true, channel: 'chrome' });
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  const errors = [], requests = [];
+  page.on('pageerror', e => errors.push(e.message));
+  page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+  page.on('request', r => requests.push(r.url()));
+  await page.goto('http://127.0.0.1:5173');
+  await page.waitForTimeout(1800);
+  fs.mkdirSync('docs/evidence', { recursive: true });
+  const positions = () => page.locator('.label').evaluateAll(els => els.map(e => [parseFloat(e.style.left), parseFloat(e.style.top)]));
+  const initial = await positions();
+  await page.screenshot({ path: 'docs/evidence/desktop-initial.png' });
+  await page.mouse.move(650, 520); await page.mouse.down(); await page.mouse.move(920, 530, { steps: 20 }); await page.mouse.up();
+  await page.waitForTimeout(1200);
+  const orbit = await positions();
+  await page.screenshot({ path: 'docs/evidence/desktop-orbit.png' });
+  await page.mouse.wheel(0, -350); await page.waitForTimeout(1000);
+  const zoom = await positions();
+  await page.getByRole('button', { name: '重置视角' }).click(); await page.waitForTimeout(1000);
+  const reset = await positions();
+  const delta = (a,b) => Math.max(...a.flatMap((p,i) => p.map((v,j) => Math.abs(v-b[i][j]))));
+  await page.setViewportSize({ width: 390, height: 844 }); await page.waitForTimeout(1200);
+  await page.screenshot({ path: 'docs/evidence/mobile-390.png' });
+  const result = { browser: await browser.version(), title: await page.title(), canvasCount: await page.locator('canvas').count(), labels: await page.locator('.label').count(), orbitPixelDelta: delta(initial,orbit), zoomPixelDelta: delta(orbit,zoom), resetPixelDelta: delta(initial,reset), noHorizontalOverflow: await page.evaluate(()=>document.documentElement.scrollWidth===innerWidth), errors, glbRequests: requests.filter(u=>/\.glb/i.test(u)) };
+  fs.writeFileSync('docs/evidence/check-results.json',JSON.stringify(result,null,2));
+  console.log(JSON.stringify(result,null,2));
+  await browser.close();
+})().catch(error => { console.error(error); process.exitCode=1; });

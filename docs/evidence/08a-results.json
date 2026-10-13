@@ -1,0 +1,68 @@
+{
+  "info": {
+    "originalBounds": {
+      "min": [
+        -0.48995980620384216,
+        0,
+        -0.4423828423023224
+      ],
+      "max": [
+        0.48989877104759216,
+        0.9232177734375,
+        0.4428100883960724
+      ]
+    },
+    "scale": [
+      2.8703953457622635,
+      2.8703953457622635,
+      2.8703953457622635
+    ],
+    "position": [
+      -0.4223302852574679,
+      0.57,
+      1.038868540486709
+    ],
+    "yaw": 0.2,
+    "worldBounds": {
+      "isBox3": true,
+      "min": {
+        "x": -1.725129103931046,
+        "y": 0.57,
+        "z": -0.3164525117133723
+      },
+      "max": {
+        "x": 0.8251291039310458,
+        "y": 3.2199999999999998,
+        "z": 2.4164525117133726
+      }
+    },
+    "placement": {
+      "height": 2.65,
+      "x": -0.45,
+      "z": 1.05,
+      "yaw": 0.2,
+      "ground": 0.57,
+      "footOffset": 0
+    }
+  },
+  "labels": 6,
+  "orbitDelta": 348.77700000000004,
+  "zoomDelta": 38.091999999999985,
+  "resetDelta": 0,
+  "reloadLoaded": true,
+  "errors": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:5173/models/yaya.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/yaya.glb",
+      "status": 200
+    }
+  ],
+  "failure": {
+    "message": "加载失败：/models/yaya.glb — fetch for \"http://127.0.0.1:5173/models/yaya.glb\" responded with 404: Not Found。保留占位，请刷新重试。",
+    "retainedLabels": 7
+  }
+}

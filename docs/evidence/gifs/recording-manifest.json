@@ -1,0 +1,566 @@
+{
+  "date": "2026-10-13T00:29:02.239Z",
+  "frameRoot": "/tmp/workshop02-record-E4fr4l",
+  "clips": [
+    {
+      "name": "w02-s07-basic-reenactment",
+      "type": "教学重演：暂缓真实 GLB 请求，使用当前代码保留的占位几何；非历史初建录像",
+      "frames": [
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0000.png",
+          "duration": 1800
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0001.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0002.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0003.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0004.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0005.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0006.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0007.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0008.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0009.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0010.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0011.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0012.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s07-basic-reenactment/0013.png",
+          "duration": 1600
+        }
+      ],
+      "gif": {
+        "file": "docs/evidence/gifs/w02-s07-basic-reenactment.gif",
+        "bytes": 2073000,
+        "frames": 14,
+        "width": 1000,
+        "height": 800,
+        "durationMs": 6400
+      }
+    },
+    {
+      "name": "w02-s08-yaya-reenactment",
+      "type": "教学重演：解除芽芽真实 GLB 请求暂停；非首次开发录像，等待时间经过剪辑",
+      "frames": [
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0000.png",
+          "duration": 1700
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0001.png",
+          "duration": 600
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0002.png",
+          "duration": 2200
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0003.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0004.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0005.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0006.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0007.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0008.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0009.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0010.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0011.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0012.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0013.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0014.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s08-yaya-reenactment/0015.png",
+          "duration": 1200
+        }
+      ],
+      "gif": {
+        "file": "docs/evidence/gifs/w02-s08-yaya-reenactment.gif",
+        "bytes": 1615726,
+        "frames": 16,
+        "width": 1000,
+        "height": 800,
+        "durationMs": 8700
+      }
+    },
+    {
+      "name": "w02-current-observation",
+      "type": "本轮真实浏览器操作；抽帧并调整停留时长，不用于性能计时",
+      "frames": [
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0000.png",
+          "duration": 1800
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0001.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0002.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0003.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0004.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0005.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0006.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0007.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0008.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0009.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0010.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0011.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0012.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0013.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0014.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0015.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0016.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0017.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0018.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0019.png",
+          "duration": 1200
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-current-observation/0020.png",
+          "duration": 1800
+        }
+      ],
+      "gif": {
+        "file": "docs/evidence/gifs/w02-current-observation.gif",
+        "bytes": 2459623,
+        "frames": 21,
+        "width": 1000,
+        "height": 800,
+        "durationMs": 9300
+      }
+    },
+    {
+      "name": "w02-s09-path-reenactment",
+      "type": "教学重演：石头采用 08g-results.json 历史位置与当前位置；其他物件保持当前布局；过渡动画仅用于教学",
+      "frames": [
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0000.png",
+          "duration": 2300
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0001.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0002.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0003.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0004.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0005.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0006.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0007.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0008.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0009.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0010.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0011.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0012.png",
+          "duration": 180
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s09-path-reenactment/0013.png",
+          "duration": 2600
+        }
+      ],
+      "gif": {
+        "file": "docs/evidence/gifs/w02-s09-path-reenactment.gif",
+        "bytes": 2442710,
+        "frames": 14,
+        "width": 1000,
+        "height": 800,
+        "durationMs": 7060
+      }
+    },
+    {
+      "name": "w02-s10-restart",
+      "type": "本轮真实停止/启动服务与刷新；浏览器字幕说明状态，非终端全程录屏；等待时间剪辑",
+      "frames": [
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0000.png",
+          "duration": 1700
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0001.png",
+          "duration": 2200
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0002.png",
+          "duration": 1600
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0003.png",
+          "duration": 600
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0004.png",
+          "duration": 1600
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0005.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0006.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0007.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0008.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0009.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0010.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0011.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0012.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0013.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0014.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0015.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0016.png",
+          "duration": 250
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0017.png",
+          "duration": 700
+        },
+        {
+          "file": "/tmp/workshop02-record-E4fr4l/w02-s10-restart/0018.png",
+          "duration": 1800
+        }
+      ],
+      "gif": {
+        "file": "docs/evidence/gifs/w02-s10-restart.gif",
+        "bytes": 2191558,
+        "frames": 19,
+        "width": 1000,
+        "height": 800,
+        "durationMs": 13200
+      }
+    }
+  ],
+  "errors": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:5173/models/yaya.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/yaya.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/forest-tree.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/moss-rest-nest.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/woodland-lantern.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/fruit-basket.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/leaf-bowl.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/peach-mushroom.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/optimized/garden-stepping-stone.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/cream-daisies.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/yaya.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/forest-tree.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/moss-rest-nest.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/woodland-lantern.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/fruit-basket.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/leaf-bowl.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/peach-mushroom.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/optimized/garden-stepping-stone.glb",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5173/models/cream-daisies.glb",
+      "status": 200
+    }
+  ],
+  "browser": "155.0.8059.40",
+  "yayaReenactment": {
+    "loaded": "芽芽已加载",
+    "remainingLabels": 6
+  },
+  "controls": {
+    "orbitDelta": 15.493983034782703,
+    "zoomDelta": 2.8214801369668048,
+    "resetDelta": 0
+  },
+  "path": {
+    "before": [
+      [
+        -0.55,
+        2.65,
+        0.12
+      ],
+      [
+        0.15,
+        2.15,
+        -0.18
+      ],
+      [
+        0.62,
+        1.62,
+        0.14
+      ],
+      [
+        0.98,
+        1.12,
+        -0.2
+      ],
+      [
+        1.28,
+        0.58,
+        0.1
+      ]
+    ],
+    "after": [
+      [
+        -0.35,
+        2.72,
+        0.12
+      ],
+      [
+        0.05,
+        2.18,
+        -0.18
+      ],
+      [
+        0.52,
+        1.64,
+        0.14
+      ],
+      [
+        1.02,
+        1.12,
+        -0.2
+      ],
+      [
+        1.42,
+        0.58,
+        0.1
+      ]
+    ],
+    "restored": true
+  },
+  "restart": {
+    "oldPid": 49613,
+    "offlineConfirmed": true,
+    "newPid": 52933,
+    "loaded": "芽芽已加载\n树已加载\n苔藓窝已加载\n灯笼已加载\n果篮已加载\n叶形水碗已加载\n蘑菇凳已加载\n踏脚石已加载 · 复用5块\n花草已加载 · 复用4簇",
+    "completed": true
+  },
+  "statuses": "芽芽已加载\n树已加载\n苔藓窝已加载\n灯笼已加载\n果篮已加载\n叶形水碗已加载\n蘑菇凳已加载\n踏脚石已加载 · 复用5块\n花草已加载 · 复用4簇"
+}
