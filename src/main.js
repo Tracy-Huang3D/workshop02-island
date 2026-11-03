@@ -3,6 +3,10 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import './style.css';
 
+// Horizontal island expansion only; all prop positions and ground heights stay unchanged.
+const ISLAND_SCALE = 1.5;
+
+
 // Step 08G: all planned scene assets are now loaded or reused.
 const viewport = document.querySelector('#viewport');
 const scene = new THREE.Scene();
@@ -36,7 +40,7 @@ sunlight.position.set(-5, 9, 6);
 sunlight.castShadow = true;
 sunlight.shadow.mapSize.set(2048, 2048);
 sunlight.shadow.radius = 4;
-Object.assign(sunlight.shadow.camera, { left: -9, right: 9, top: 9, bottom: -9, near: 0.5, far: 30 });
+Object.assign(sunlight.shadow.camera, { left: -9 * ISLAND_SCALE, right: 9 * ISLAND_SCALE, top: 9 * ISLAND_SCALE, bottom: -9 * ISLAND_SCALE, near: 0.5, far: 30 * ISLAND_SCALE });
 sunlight.shadow.normalBias = 0.04;
 sunlight.shadow.bias = -0.00015;
 scene.add(sunlight);
@@ -55,7 +59,7 @@ const cylinder = (a,b,h) => new THREE.CylinderGeometry(a,b,h,48);
 const outline = new THREE.CatmullRomCurve3(Array.from({length:12}, (_,i) => {
   const angle = i / 12 * Math.PI * 2;
   const radius = 1 + 0.055 * Math.sin(angle*3) + 0.035*Math.cos(angle*5);
-  return new THREE.Vector3(Math.cos(angle)*4.85*radius, Math.sin(angle)*3.6*radius, 0);
+  return new THREE.Vector3(Math.cos(angle)*4.85*radius*ISLAND_SCALE, Math.sin(angle)*3.6*radius*ISLAND_SCALE, 0);
 }), true);
 const shape = new THREE.Shape(outline.getPoints(96).map(p => new THREE.Vector2(p.x,p.y)));
 const island = new THREE.Mesh(new THREE.ExtrudeGeometry(shape, { depth: .28, bevelEnabled: true, bevelSegments: 4, steps: 1, bevelSize: .16, bevelThickness: .12, curveSegments: 48 }), [materials.grass, materials.earth]);
@@ -77,7 +81,7 @@ mesh(sphere,materials.peach,yaya,[0,1.4,0],[.4,.12,.4]);
 const modelStatus = document.querySelector('#model-status');
 const modelUrl = `${import.meta.env.BASE_URL}models/yaya.glb`;
 // Flat island top = .17 + .28 + .12; .59 is the earlier placeholder clearance.
-const modelPlacement = { height: 2.65, x: -.45, z: 1.05, yaw: .2, ground: .57, footOffset: 0 };
+const modelPlacement = { height: 2.25, x: -.45, z: 1.05, yaw: .2, ground: .57, footOffset: 0 };
 let modelInfo;
 new GLTFLoader().load(modelUrl, gltf => {
   try {
@@ -149,13 +153,13 @@ function showTreeError(error) {
   treeStatus.dataset.state = 'error';
   treeStatus.textContent = `加载失败：${treeUrl} — ${error.message || error.target?.statusText || '网络请求失败'}。保留树占位，请刷新重试。`;
 }
-const nest = placeholder('苔藓窝',2,-.95,.65);
+const nestPlacement = { width: 2.8, x: 2.4, z: -1.0, yaw: -.08, ground: .57 };
+const nest = placeholder('苔藓窝',nestPlacement.x,nestPlacement.z,.65);
 const ring = mesh(new THREE.TorusGeometry(.82,.18,16,48),materials.wood,nest,[0,.22,0]); ring.rotation.x = Math.PI/2;
 mesh(cylinder(.7,.7,.14),materials.moss,nest,[0,.14,0]);
 const nestStatus = document.querySelector('#nest-status');
 const nestUrl = `${import.meta.env.BASE_URL}models/moss-rest-nest.glb`;
 // Use footprint instead of height for a shallow resting nest; retain its proportions.
-const nestPlacement = { width: 2.8, x: 1.85, z: -.9, yaw: -.08, ground: .57 };
 let nestInfo;
 new GLTFLoader().load(nestUrl, gltf => {
   try {
@@ -187,12 +191,12 @@ function showNestError(error) {
   nestStatus.dataset.state='error';
   nestStatus.textContent=`加载失败：${nestUrl} — ${error.message||error.target?.statusText||'网络请求失败'}。保留苔藓窝占位，请刷新重试。`;
 }
-const lantern = placeholder('灯笼',3.42,-.62,1.05);
+const lanternPlacement = { height: 1.05, x: -4.3, z: 2.4, yaw: 0, ground: .57 };
+const lantern = placeholder('灯笼',lanternPlacement.x,lanternPlacement.z,1.05);
 mesh(new THREE.BoxGeometry(.4,.65,.4),mat('#e9c777'),lantern,[0,.4,0]);
 mesh(new THREE.ConeGeometry(.4,.28,6),materials.leaf,lantern,[0,.86,0]);
 const lanternStatus = document.querySelector('#lantern-status');
 const lanternUrl = `${import.meta.env.BASE_URL}models/woodland-lantern.glb`;
-const lanternPlacement = { height: 1.05, x: 3.75, z: -.65, yaw: 0, ground: .57 };
 let lanternInfo;
 new GLTFLoader().load(lanternUrl, gltf => {
   try {
@@ -263,7 +267,7 @@ const bowl = placeholder('叶形水碗',3.2,1.25,.42);
 mesh(sphere,materials.leaf,bowl,[0,.13,0],[.52,.12,.32]);
 const bowlStatus = document.querySelector('#bowl-status');
 const bowlUrl = `${import.meta.env.BASE_URL}models/leaf-bowl.glb`;
-const bowlPlacement = { width: 1.0, x: 3.3, z: 1.25, yaw: 0, ground: .57 };
+const bowlPlacement = { width: 1.0, x: 4.0, z: 1.25, yaw: 0, ground: .57 };
 let bowlInfo;
 new GLTFLoader().load(bowlUrl, gltf => {
   try {
@@ -313,24 +317,59 @@ new GLTFLoader().load(stoolUrl, gltf => {
 }, e => { stoolStatus.textContent=e.lengthComputable&&e.total>0 ? `蘑菇凳正在加载 · ${Math.floor(e.loaded/e.total*100)}%` : '蘑菇凳正在加载'; }, showStoolError);
 function showStoolError(e) { stoolStatus.dataset.state='error'; stoolStatus.textContent=`加载失败：${stoolUrl} — ${e.message||'网络请求失败'}。暂时显示蘑菇凳几何回退形状，请刷新重试。`; }
 
-const stonePositions=[[-.35,2.72,.12],[.05,2.18,-.18],[.52,1.64,.14],[1.02,1.12,-.2],[1.42,.58,.1]];
+// Start beside the fox, pass in front of the basket/bowl, then curve around the right half.
+// Equal arc-length sampling keeps the original ~0.7-unit stepping rhythm.
+const stonePath = new THREE.CatmullRomCurve3([
+  [-.35, 2.72], [1.6, 3.45], [3.8, 3.15], [5.4, 1.8],
+  [5.65, -.3], [4.9, -2.4], [3.1, -3.65],
+].map(([x,z]) => new THREE.Vector3(x * ISLAND_SCALE / 1.5, 0, z * ISLAND_SCALE / 1.5)));
+const stoneCount = Math.ceil(stonePath.getLength() / .7) + 1;
+const stonePositions = stonePath.getSpacedPoints(stoneCount - 1).map((p,i) => [p.x, p.z, i % 2 ? -.18 : .12]);
 // Step 10A: change this one path to models/garden-stepping-stone.glb to切回原版。
 const stoneModelFile = 'models/optimized/garden-stepping-stone.glb';
 const stoneUrl=`${import.meta.env.BASE_URL}${stoneModelFile}`; const stoneStatus=document.querySelector('#stone-status'); let stoneInfo;
-new GLTFLoader().load(stoneUrl,gltf=>{const source=gltf.scene; source.updateMatrixWorld(true); const b=new THREE.Box3().setFromObject(source,true), size=b.getSize(new THREE.Vector3()), scale=.58/size.x; stonePositions.forEach(([x,z,yaw],i)=>{const m=source.clone(true); m.name=`踏脚石 ${i+1}`; m.scale.setScalar(scale*(.88+i%2*.14)); m.rotation.y=yaw; m.updateMatrixWorld(true); const bb=new THREE.Box3().setFromObject(m,true),c=bb.getCenter(new THREE.Vector3()); m.position.set(x-c.x,.57-bb.min.y,z-c.z); m.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}}); scene.add(m);}); stoneInfo={count:stonePositions.length,positions:stonePositions}; stoneStatus.dataset.state='loaded'; stoneStatus.textContent='踏脚石已加载 · 复用5块';},()=>{stoneStatus.textContent='踏脚石正在加载';},e=>{stoneStatus.dataset.state='error';stoneStatus.textContent=`加载失败：${stoneUrl} — ${e.message||'网络请求失败'}。保留程序化石块。`;});
+new GLTFLoader().load(stoneUrl,gltf=>{const source=gltf.scene; source.updateMatrixWorld(true); const b=new THREE.Box3().setFromObject(source,true), size=b.getSize(new THREE.Vector3()), scale=.58/size.x; stonePositions.forEach(([x,z,yaw],i)=>{const m=source.clone(true); m.name=`踏脚石 ${i+1}`; m.scale.setScalar(scale*(.88+i%2*.14)); m.rotation.y=yaw; m.updateMatrixWorld(true); const bb=new THREE.Box3().setFromObject(m,true),c=bb.getCenter(new THREE.Vector3()); m.position.set(x-c.x,.57-bb.min.y,z-c.z); m.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}}); scene.add(m);}); stoneInfo={count:stonePositions.length,positions:stonePositions}; stoneStatus.dataset.state='loaded'; stoneStatus.textContent=`踏脚石已加载 · 复用${stonePositions.length}块`;},()=>{stoneStatus.textContent='踏脚石正在加载';},e=>{stoneStatus.dataset.state='error';stoneStatus.textContent=`加载失败：${stoneUrl} — ${e.message||'网络请求失败'}。保留程序化石块。`;});
 const daisyUrl=`${import.meta.env.BASE_URL}models/cream-daisies.glb`; const daisyStatus=document.querySelector('#daisy-status'); let daisyInfo;
-new GLTFLoader().load(daisyUrl,gltf=>{const source=gltf.scene; source.updateMatrixWorld(true); const spots=[[-3.95,-1.65,.8],[-3.65,-.25,1.4],[4.05,1.7,-.7],[3.8,.1,.3]]; spots.forEach(([x,z,yaw],i)=>{const m=source.clone(true); m.name=`花草 ${i+1}`; m.scale.setScalar(.62*(i%2?.8:1)); m.rotation.y=yaw; m.updateMatrixWorld(true); const bb=new THREE.Box3().setFromObject(m,true),c=bb.getCenter(new THREE.Vector3()); m.position.set(x-c.x,.57-bb.min.y,z-c.z); m.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}}); scene.add(m);}); daisyInfo={count:spots.length,spots}; daisyStatus.dataset.state='loaded'; daisyStatus.textContent='花草已加载 · 复用4簇';},()=>{daisyStatus.textContent='花草正在加载';},e=>{daisyStatus.dataset.state='error';daisyStatus.textContent=`加载失败：${daisyUrl} — ${e.message||'网络请求失败'}。保留简化花草。`;});
+new GLTFLoader().load(daisyUrl,gltf=>{const source=gltf.scene; source.updateMatrixWorld(true); const spots=[
+  [-6.15,-1.6,.8],[-6.05,.5,1.4],[-5.35,2.65,-.4],[-2.7,4.15,.5],
+  [.1,4.65,-.7],[2.8,4.1,.3],[6.3,.25,-.5],[5.65,-2.5,.7],
+  [1.1,-4.5,-.3],[-2.2,-4.1,.8],[-4.7,-3.1,-.6],[-4.1,3.5,.2],[-3.25,2.55,-.5],
+].map(([x,z,yaw])=>[x*ISLAND_SCALE/1.5,z*ISLAND_SCALE/1.5,yaw]); spots.forEach(([x,z,yaw],i)=>{const m=source.clone(true); m.name=`花草 ${i+1}`; m.scale.setScalar(.62*(i%2?.8:1)); m.rotation.y=yaw; m.updateMatrixWorld(true); const bb=new THREE.Box3().setFromObject(m,true),c=bb.getCenter(new THREE.Vector3()); m.position.set(x-c.x,.57-bb.min.y,z-c.z); m.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}}); scene.add(m);}); daisyInfo={count:spots.length,spots}; daisyStatus.dataset.state='loaded'; daisyStatus.textContent=`花草已加载 · 复用${spots.length}簇`;},()=>{daisyStatus.textContent='花草正在加载';},e=>{daisyStatus.dataset.state='error';daisyStatus.textContent=`加载失败：${daisyUrl} — ${e.message||'网络请求失败'}。保留简化花草。`;});
 
 function resetView() {
   const aspect = viewport.clientWidth / viewport.clientHeight;
   const vertical = THREE.MathUtils.degToRad(camera.fov / 2);
   const horizontal = Math.atan(Math.tan(vertical)*aspect);
-  const distance = 6 / Math.sin(Math.min(vertical,horizontal));
+  let distance = (4.8 * ISLAND_SCALE) / Math.sin(Math.min(vertical,horizontal));
+  const framingTarget = new THREE.Vector3(0,.85,0);
+  // Desktop: aim for 85% width, but keep the island and treetop inside the viewport.
+  // A wide, shallow viewport reaches its height limit before its width limit.
+  if (viewport.clientWidth > 600) {
+    const direction = new THREE.Vector3(.2,.68,1).normalize();
+    const right = new THREE.Vector3().crossVectors(camera.up, direction).normalize();
+    const up = new THREE.Vector3().crossVectors(direction, right);
+    island.updateMatrixWorld(true);
+    const points = [];
+    const positions = island.geometry.attributes.position;
+    for (let i = 0; i < positions.count; i++) {
+      points.push(new THREE.Vector3().fromBufferAttribute(positions,i).applyMatrix4(island.matrixWorld));
+    }
+    points.push(new THREE.Vector3(treePlacement.x,treePlacement.ground+treePlacement.height,treePlacement.z));
+    const heights = points.map(point => point.clone().sub(framingTarget).dot(up));
+    framingTarget.addScaledVector(up,(Math.min(...heights)+Math.max(...heights))/2);
+    distance = Math.max(...points.map(point => {
+      const offset = point.clone().sub(framingTarget);
+      return offset.dot(direction) + Math.max(
+        Math.abs(offset.dot(right)) / (Math.tan(horizontal) * .85),
+        Math.abs(offset.dot(up)) / (Math.tan(vertical) * .90),
+      );
+    }));
+  }
   controls.enableDamping = false;
   controls.reset();
-  controls.target.set(0,.85,0);
+  controls.target.copy(framingTarget);
   camera.position.copy(new THREE.Vector3(.2,.68,1).normalize().multiplyScalar(distance).add(controls.target));
-  controls.minDistance = 7; controls.maxDistance = distance*1.65;
+  controls.minDistance = 4 * ISLAND_SCALE; controls.maxDistance = distance*1.65;
   controls.update(); controls.saveState(); controls.enableDamping = true;
 }
 function resize() {
