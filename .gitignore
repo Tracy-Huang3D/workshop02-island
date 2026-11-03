@@ -9,3 +9,7 @@ output/
 coverage/
 playwright-report/
 test-results/
+
+# Learner-local notes (not part of the distributed example)
+docs/my-progress.md
+docs/asset-inventory.md
